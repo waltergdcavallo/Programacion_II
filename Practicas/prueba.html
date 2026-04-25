@@ -10,6 +10,10 @@
     <ul id="lista">
     </ul>
 
+    <input type="text" id="buscador">
+
+    <ul id="lista2"></ul>
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -41,6 +45,33 @@
             data.forEach(e=>{
                 $(`#lista`).append(`<li>${e.titulo}</li>`);
             });
+        });
+
+
+
+
+            $(`#buscador`).on(`input`, function(){
+                let texto=$(this).val().toLowerCase();
+
+                $.get(`eventos.json`,function(data){
+                    let filtrados=data.filter(e=>e.titulo.toLowerCase().includes(texto));
+
+                    $(`#lista2`).html("");
+                    
+
+                    
+                    if(!texto){$(`#buscador`).append(`Realice una busqueda`);
+
+                    } else{
+                        filtrados.forEach(e=>{$(`#lista2`).append(`<li>${e.titulo}</li>`);});
+                    }
+
+                    if(texto.includes(filtrados)){$(`#lista2`).append(`<p>No se encontraron resultados</p>`);}
+
+/*                     filtrados.forEach(e=>{
+                            $(`#lista2`).append(`<li>${e.titulo}</li>`);
+                    }); */
+                });
             });
 
     </script>
