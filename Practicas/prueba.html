@@ -59,14 +59,9 @@
                     $(`#lista2`).html("");
                     
 
-                    
-                    if(!texto){$(`#buscador`).append(`Realice una busqueda`);
+                    if(texto){filtrados.forEach(e=>{$(`#lista2`).append(`<li>${e.titulo}</li>`);});}
 
-                    } else{
-                        filtrados.forEach(e=>{$(`#lista2`).append(`<li>${e.titulo}</li>`);});
-                    }
-
-                    if(texto.includes(filtrados)){$(`#lista2`).append(`<p>No se encontraron resultados</p>`);}
+                    if(texto.toLowerCase().includes(filtrados)){$(`#lista2`).append(`<p>No se encontraron resultados</p>`);}
 
 /*                     filtrados.forEach(e=>{
                             $(`#lista2`).append(`<li>${e.titulo}</li>`);
