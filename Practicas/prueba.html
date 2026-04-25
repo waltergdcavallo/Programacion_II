@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="lista">
+    </ul>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        setTimeout(()=>{
+            console.log("datos recibidos")
+        }, 10000);
+
+        function obtenerEventos(callback){
+            setTimeout(() =>{
+                callback([
+                    {titulo:"JS"},
+                    {titulo:"Symfony"}
+                ]);
+            },1000);
+        }
+
+        obtenerEventos(function(eventos){
+            $(`#lista`).html("");
+
+            eventos.forEach(e=>{
+                $(`#lista`).append(`<li>${e.titulo}</li>`);
+            });
+        });
+
+ 
+        $.get(`eventos.json`, function(data){
+            data.forEach(e=>{
+                $(`#lista`).append(`<li>${e.titulo}</li>`);
+            });
+            });
+
+    </script>
+</body>
+</html>
