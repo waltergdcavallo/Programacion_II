@@ -50,10 +50,11 @@ function mostrarProductos(productos) {
     productos.forEach(p => {
 
         $('#lista').append(`
-        <div class="producto">
+        <div class="producto p-3 col-4 card text-center border border-dark bg-warning rounded-4">
         <h3>${p.title}</h3>
         <p>$${p.price}</p>
-        <button onclick="verDetalle(${p.id})">Ver detalle</button>
+        <button onclick="verDetalle(${p.id})" class="btn btn-primary">Ver detalle</button>
+        <button class="btn btn-danger mt-1">Borrar</button>
         </div>
         `);
     });
