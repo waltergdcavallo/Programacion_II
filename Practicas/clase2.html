@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos 2</h1>
+    <ul id="lista2"></ul>
+    <h1>Eventos 3</h1>
+    <ul id="lista3"></ul>
+    <h1>Eventos 4</h1>
+    <ul id="lista4"></ul>
+    <h1>Eventos 5</h1>
+    <ul id="lista5"></ul>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let eventos1=[
+            {id:1, titulo:"JS", cupo:10},
+            {id:1, titulo:"Symfony", cupo:0}
+            ];
+
+            eventos1.forEach(e=>{console.log(e.titulo)})
+
+            eventos1.forEach(e=>{document.getElementById("lista2").innerHTML+=`<li> titulo: ${e.titulo} - cupo: ${e.cupo}</li>`});
+
+
+        let eventos2=[
+            {titulo: "JS"},
+            {titulo: "Symfony"}
+            ];
+
+            eventos2.forEach(e=>{$(`#lista3`).append(`<li>${e.titulo}</li>`)});
+
+            eventos1.forEach(e=>{if (e.cupo>0){$("#lista4").append(`<li>${e.titulo}</li>`)}});
+
+
+        function obtenerEventos(){
+                return[{id:1, titulo:"Evento Backend"}, {id:2, titulo:"Evento Frontend"}];
+            }
+
+
+        let eventitos=obtenerEventos();
+            eventitos.forEach(e=>{
+                $(`#lista5`).append(`<li>${e.titulo}</li>`);
+            });
+
+
+        let eventos3=[
+            {titulo:"JS", cupo:10},
+            {titulo:"Synfony", cupo:0},
+            {titulo:"PHP", cupo:5}
+            ];
+
+        $(`#lista`).html("");
+
+        eventos3.forEach(e=>{
+            if(e.cupo>0){
+            $(`#lista`).append(`<li>${e.titulo}- cupo: ${e.cupo}</li>`);
+            }
+        });
+ 
+    </script>
+
+</body>
+</html>

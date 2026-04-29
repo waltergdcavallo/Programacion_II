@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="saludar()">click</button>
+    <button onclick="inscribir()">inscribirse</button>
+    <button onclick="mostrar()">inscribir cupo</button>
+
+    <h1 id="titulo">Eventos</h1>
+    <button onclick="cambiar()">Cambiar titulo</button>
+
+    <ul id="lista">
+        <li>evento 1 <button onclick="inscribir()">inscribirse</button></li>
+        <br>
+        <li>evento 2 <button onclick="inscribir()">inscribirse</button></li>
+        <br>
+        <li>evento 3 <button onclick="inscribir()">inscribirse</button></li>
+        <br>
+        <li>evento 4 <button onclick="inscribir()">inscribirse</button></li>
+        <br>
+        <li>evento jquery <button onclick="inscribir()">inscribirse</button></li>
+        <br>
+    </ul>
+    <button onclick="agregar()">Agregar evento</button>
+
+<script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        function saludar(){
+            alert("hola");
+        }
+        
+        let nombre="juan";
+        let edad=20;
+        function inscribir(){
+            if (edad>=18){
+                console.log("puede inscribirse");
+            } else{
+                console.log("no puede inscribirse");
+            }
+        }
+
+        let evento=1;
+        function mostrar(){
+            let cupo=prompt("escriba su nombre");
+            evento=evento-1;
+            console.log(evento);
+            if(evento==0){
+                console.log("no puede inscribirse");
+            }else{
+                console.log("puede inscribirse");
+            }
+        }
+
+        function cambiar(){
+/*             document.getElementById("titulo").innerText="Eventos disponibles"; */
+            $("#titulo").text("Eventos actualizados");
+        }
+        
+        function agregar(){
+            let nuevo=prompt("ingrese el evento");
+            /* document.getElementById("lista").innerHTML+="<li>"+nuevo+"</li>"; */
+            $("#lista").append("<li>"+nuevo+"<button> inscribirse </button>"+"</li>"+"<br>");
+            
+        }
+
+    </script>
+
+</body>
+</html>
